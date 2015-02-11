@@ -1,0 +1,16 @@
+{
+  "name": "node-topten-headlines",
+  "version": "0.0.0",
+  "description": "Application to display the top ten headlines of a list of RSS feeds",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "client": "node client.js",
+    "server": "node server.js"
+  },
+  "author": "John Zucker",
+  "dependencies": {
+    "ortoo-feedparser": "*"
+  }
+}
