@@ -1,15 +1,16 @@
 {
-  "name": "node-topten-headlines",
+  "name": "newsfeed-node",
   "version": "0.0.0",
-  "description": "Application to display the top ten headlines of a list of RSS feeds",
+  "description": "Application to display the to RSS feeds from two feed sources",
   "main": "index.js",
+  "repository": {
+      "type": "git",
+      "url": "https://github.com/JohnZucker/newsfeed-nodejs"},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js",
-    "client": "node client.js",
-    "server": "node server.js"
+    "test": "node newsfeed-display.js",
+    "start": "node newsfeed-display.js"
   },
-  "author": "John Zucker",
+  "author": "John Zucker <zuckerjohn@gmail.com>",
   "dependencies": {
     "ortoo-feedparser": "*"
   }
