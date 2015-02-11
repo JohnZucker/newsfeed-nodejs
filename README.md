@@ -11,7 +11,7 @@ Create news website with the following requirements :
      
 # Source control
 
-https://github.com/JohnZucker/newsfeed-node    
+https://github.com/JohnZucker/newsfeed-nodejs    
 
 # Server used for tests
 
