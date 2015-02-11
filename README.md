@@ -47,4 +47,4 @@ Expected console logging
 
 Webpage output should resemble
 
-![newsfeed-nodejs-webpage-example.png]
+![newsfeed-nodejs-webpage-example.png](https://github.com/JohnZucker/newsfeed-nodejs/blob/master/newsfeed-nodejs-webpage-example.png)
