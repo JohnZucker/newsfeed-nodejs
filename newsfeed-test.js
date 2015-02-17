@@ -1,3 +1,8 @@
+// Serverless test, at node prompt
+
+// npm install underscore
+var __ = require('underscore');
+
 var http = require('http');
 var feedparser = require('ortoo-feedparser');
 var feedsource1 = 'http://feeds.skynews.com/feeds/rss/home.xml';
@@ -29,14 +34,25 @@ function renderArticlesFromSource(feedsource, res, limit, final) {
 }
 
 // Dummy values
-article = { title: 'test1_title', link: 'test1_link', summary: 'test1_summary' }
+article = { title: 'test1_title', link: 'test1_link', summary: 'test1_summary' };
+var TEST_CYCLES_PER_SOURCE=5
 
 // Dummy stream so as to simulate HTTP Response
 var fs = require('fs');
 var res = fs.createWriteStream('test1_output.txt');
-res.write("<html>\n<title>\nLatest news headlines</title>\n<body>\n<ol>");
-renderArticlesFromSource(feedsource1, res, ARTICLES_PER_SOURCE, false);
 res.on('finish', function () {
   console.log('Dummy file has been written');
 });
+
+// Repeated test
+res.write("<html>\n<title>\nLatest news headlines</title>\n<body>\n<ol>"); 
+__.times(
+  TEST_CYCLES_PER_SOURCE,
+  function () { renderArticlesFromSource(feedsource1, res, ARTICLES_PER_SOURCE, false);} );
 res.end();
+
+// TODO Target code
+// catch Error: write after end
+// cath Error: getaddrinfo ENOTFOUND feeds.skynews.com
+
+
