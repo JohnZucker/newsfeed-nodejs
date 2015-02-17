@@ -28,17 +28,15 @@ function renderArticlesFromSource(feedsource, res, limit, final) {
     });
 }
 
+// Dummy values
+article = { title: 'test1_title', link: 'test1_link', summary: 'test1_summary' }
 
-http.createServer(function(req, res) {
-
-    res.writeHead(200, {
-        'Content-Type': 'text/html'
-    });
-    res.write("<html>\n<title>\nLatest news headlines</title>\n<body>\n<ol>");
-    renderArticlesFromSource(feedsource1, res, ARTICLES_PER_SOURCE, false);
-    renderArticlesFromSource(feedsource2, res, ARTICLES_PER_SOURCE, true);
-    // TOOD-  Change design to put these sources into array and final member could assign true to final arg of last member
-
-}).listen(8124);
-
-console.log('Server running at http://localhost:8124/');
+// Dummy stream so as to simulate HTTP Response
+var fs = require('fs');
+var res = fs.createWriteStream('test1_output.txt');
+res.write("<html>\n<title>\nLatest news headlines</title>\n<body>\n<ol>");
+renderArticlesFromSource(feedsource1, res, ARTICLES_PER_SOURCE, false);
+res.on('finish', function () {
+  console.log('Dummy file has been written');
+});
+res.end();
