@@ -1,0 +1,36 @@
+<html>
+<title>
+Latest news headlines</title>
+<body>
+<ol><li style="color:blue">test2_title</li><p>
+<small>
+<a href=test2_link>test2_link</a>
+</small>
+</p><p>
+<small>test2_summary</small>
+</p><li style="color:blue">test2_title</li><p>
+<small>
+<a href=test2_link>test2_link</a>
+</small>
+</p><p>
+<small>test2_summary</small>
+</p><li style="color:blue">test2_title</li><p>
+<small>
+<a href=test2_link>test2_link</a>
+</small>
+</p><p>
+<small>test2_summary</small>
+</p><li style="color:blue">test2_title</li><p>
+<small>
+<a href=test2_link>test2_link</a>
+</small>
+</p><p>
+<small>test2_summary</small>
+</p><li style="color:blue">test2_title</li><p>
+<small>
+<a href=test2_link>test2_link</a>
+</small>
+</p><p>
+<small>test2_summary</small>
+</p></ol>
+</body>

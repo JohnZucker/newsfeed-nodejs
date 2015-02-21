@@ -1,11 +1,11 @@
-// Render onto a webbpage up to ARTICLES_PER_SOURCE articles for the nominated sources exported iun
-// feedsource.js. Render all the sources in feedsource.js as enumerated up to _counts available sources.
+/*  Render onto a webbpage up to ARTICLES_PER_SOURCE articles for the nominated sources exported iun
+feedsource.js. Render all the sources in feedsource.js as enumerated up to _counts available sources. */
 
 
 var http = require('http');
 var feedparser = require('ortoo-feedparser');
 var feeds = require('./feedsource');
-// Allow command-line setting to produce increased informational statements
+// Allow optional command-line setting to produce verbose informational statements
 var VERBOSE_LOGGING = Boolean(process.argv[2] && !!(process.argv[2].toLowerCase().match('verbose*')));
 
 var TOTAL_FEEDS_TO_BE_PROCESSED = feeds._count();
@@ -75,10 +75,19 @@ function renderArticlesFromSource(feedsource, res, limit) {
 
     })
 };
-exports.renderArticlesFromSource = function(feedsource, res, limit) { // For test
+
+/* Exported functions to test */
+exports.renderArticlesFromSource = function(feedsource, res, limit) {
     renderArticlesFromSource(feedsource, res, limit);
 }
+exports.render_article_list_element = function(res, article) {
+    render_article_list_element(res, article);
+}
+exports.render_error_conditon = function(res, err) {
+    render_error_conditon(res, err);
+}
 
+/* node.js server launch */
 http.createServer(function(req, res) {
     res.writeHead(200, {
         'Content-Type': 'text/html',
