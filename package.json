@@ -4,14 +4,15 @@
   "description": "Application to display the to RSS feeds from two feed sources",
   "main": "index.js",
   "repository": {
-      "type": "git",
-      "url": "https://github.com/JohnZucker/newsfeed-nodejs"},
+    "type": "git",
+    "url": "https://github.com/JohnZucker/newsfeed-nodejs"
+  },
   "scripts": {
     "test": "node newsfeed-display.js",
     "start": "node newsfeed-display.js"
   },
   "author": "John Zucker <zuckerjohn@gmail.com>",
   "dependencies": {
-    "ortoo-feedparser": "*"
+    "ortoo-feedparser": "^0.11.0"
   }
 }
