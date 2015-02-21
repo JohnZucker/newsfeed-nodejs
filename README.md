@@ -41,9 +41,12 @@ To test locally, (optionally) using verbose (verbose\*, VERBOSE\*) logging,
 
 Expected console logging
 
-    Rendering articles from feedsource http://feeds.skynews.com/feeds/rss/home.xml
-    Rendering articles from feedsource http://feeds.bbci.co.uk/news/rss.xml
-    All articles written from final feed source
+    Rendering articles from feedsource http://feeds.bbci.co.uk/news/rss.xml    
+    Rendering articles from feedsource http://feeds.skynews.com/feeds/rss/home.xml    
+    Already encountered feed sources:     
+    Adding feed http://feeds.skynews.com/feeds/rss/home.xml with feeds_processed_length = 0     
+    Already encountered feed sources: http://feeds.skynews.com/feeds/rss/home.xml    
+    Adding feed http://feeds.bbci.co.uk/news/rss.xml with feeds_processed_length = 1
 
 Webpage output should resemble
 
