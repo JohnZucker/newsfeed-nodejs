@@ -43,15 +43,13 @@ function renderArticlesFromSource(feedsource, res, limit) {
     }
     var articles_count = 0;
     log_informational('Rendering articles from feedsource ' + feedsource);
-    parseStream.
-    on('article', function(article) {
+    parseStream.on('article', function(article) {
         if (articles_count < limit) {
             render_article_list_element(res, article);
             articles_count += 1
         }
     });
-    parseStream.
-    on('end', function() {
+    parseStream.on('end', function() {
         log_informational('Already encountered feed sources: ' + feeds_processed);
         var feeds_processed_length = feeds_processed.length;
         if (feeds_processed.indexOf(feedsource) < 0) {
