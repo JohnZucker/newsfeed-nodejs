@@ -34,9 +34,9 @@ Requires node and npm
 
 # Test runs
 
-To test locally,
+To test locally, (optionally) using verbose (verbose\*, VERBOSE\*) logging,
 
-    $ node newsfeed-display.js &
+    $ node newsfeed-display.js verbose &
     Server running at http://localhost:8124/
 
 Expected console logging
