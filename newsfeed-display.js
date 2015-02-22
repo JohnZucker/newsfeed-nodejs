@@ -1,4 +1,4 @@
-/*  Render onto a webbpage up to ARTICLES_PER_SOURCE articles for the nominated sources exported iun
+/*  Render onto a webbpage up to ARTICLES_PER_SOURCE articles for the nominated sources exported in
 feedsource.js. Render all the sources in feedsource.js as enumerated up to _counts available sources. */
 
 
