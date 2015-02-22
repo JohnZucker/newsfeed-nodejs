@@ -1,7 +1,8 @@
 {
   "name": "newsfeed-node",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Application to display the to RSS feeds from two feed sources",
+  "creationDate": "February 2015",
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -13,6 +14,9 @@
   },
   "author": "John Zucker <zuckerjohn@gmail.com>",
   "dependencies": {
-    "ortoo-feedparser": "^0.11.0"
+    "mocha": "^2.1.0",
+    "ortoo-feedparser": "^0.11.0",
+    "underscore": "^1.8.1"
   }
+, "engines": { "node": ">=0.13.0" }
 }
