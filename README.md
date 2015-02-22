@@ -34,7 +34,7 @@ Requires node and npm
 
 # Test runs
 
-To test locally, (optionally) using verbose (verbose\*, VERBOSE\*) logging,
+To test locally, (optionally) using verbose (command argurment verbose\*, VERBOSE\*) logging,
 
     $ node newsfeed-display.js verbose &
     Server running at http://localhost:8124/
@@ -51,3 +51,23 @@ Expected console logging
 Webpage output should resemble
 
 ![newsfeed-nodejs-webpage-example.png](https://github.com/JohnZucker/newsfeed-nodejs/blob/master/newsfeed-nodejs-webpage-example.png)
+
+For simple 'walkthrough' tests using a 'mocked by hand' implementation of the HttpRequest as file output for analysis, see subdirectory handmocked.
+
+# Automated tests
+
+To establish regression baseline.
+
+Test tool dependencies
+
+- nock ... HTTP 'interception' mocking library for node.js    
+https://github.com/pgte/nock
+- mocha ... Testing framework for node.js and browser code op semantics    
+https://github.com/mochajs/mocha
+
+nock is used to intercept http responses and write data into string newsfeedRecordedCallResponse in the test http-request-test.js.
+
+To execute tests 
+
+    $ cd test
+    npm test

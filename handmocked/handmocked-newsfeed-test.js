@@ -1,5 +1,6 @@
 /* Serverless test, at node prompt
-To test
+Creates a dummy response stream to test file, i.e. mocking the response 'by hand'
+Was used to test
 catch Error: write after end
 catch Error: getaddrinfo ENOTFOUND feeds.skynews.com 
 

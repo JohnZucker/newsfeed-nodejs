@@ -77,15 +77,11 @@ function renderArticlesFromSource(feedsource, res, limit) {
 };
 
 /* Exported functions to test */
-exports.renderArticlesFromSource = function(feedsource, res, limit) {
-    renderArticlesFromSource(feedsource, res, limit);
-}
-exports.render_article_list_element = function(res, article) {
-    render_article_list_element(res, article);
-}
-exports.render_error_conditon = function(res, err) {
-    render_error_conditon(res, err);
-}
+module.exports = {
+    renderArticlesFromSource: renderArticlesFromSource,
+    render_article_list_element: render_article_list_element,
+    render_error_conditon: render_error_conditon
+};
 
 /* node.js server launch */
 http.createServer(function(req, res) {

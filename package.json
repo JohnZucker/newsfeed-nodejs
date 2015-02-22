@@ -15,8 +15,11 @@
   "author": "John Zucker <zuckerjohn@gmail.com>",
   "dependencies": {
     "mocha": "^2.1.0",
+    "nock": "^0.34.1",
     "ortoo-feedparser": "^0.11.0",
     "underscore": "^1.8.1"
+  },
+  "engines": {
+    "node": ">=0.13.0"
   }
-, "engines": { "node": ">=0.13.0" }
 }
