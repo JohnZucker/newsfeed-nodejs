@@ -65,8 +65,6 @@ http://visionmedia.github.io/superagent/docs/test.html
 - mocha ... Testing framework for node.js and browser code op semantics    
 https://github.com/mochajs/mocha
 
-nock is used to intercept http responses and write data into string newsfeedRecordedCallResponse in the test http-request-test.js.
-
 To execute tests 
 
     $ mocha test
