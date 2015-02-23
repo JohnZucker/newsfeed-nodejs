@@ -49,6 +49,9 @@ function renderArticlesFromSource(feedsource, res, limit) {
             articles_count += 1
         }
     });
+    parseStream.on('data', function() {
+        log_informational('Written data: ' + data)
+    });
     parseStream.on('end', function() {
         log_informational('Already encountered feed sources: ' + feeds_processed);
         var feeds_processed_length = feeds_processed.length;
