@@ -69,5 +69,4 @@ nock is used to intercept http responses and write data into string newsfeedReco
 
 To execute tests 
 
-    $ cd test
-    mocha test
+    $ mocha test
