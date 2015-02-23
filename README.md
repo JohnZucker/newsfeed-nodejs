@@ -34,13 +34,13 @@ Requires node and npm
 
 # Test runs
 
-To test locally, (optionally) using verbose (command argurment verbose\*, VERBOSE\*) logging,
+To test locally, (optionally) using verbose (command argument verbose\*, VERBOSE\*) logging,
 
     $ node newsfeed-display.js verbose &
-    Server running at http://localhost:8124/
 
 Expected console logging
 
+    Server running at http://localhost:8124/
     Rendering articles from feedsource http://feeds.bbci.co.uk/news/rss.xml    
     Rendering articles from feedsource http://feeds.skynews.com/feeds/rss/home.xml    
     Already encountered feed sources:     
