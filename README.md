@@ -60,8 +60,8 @@ To establish regression baseline.
 
 Test tool dependencies
 
-- nock ... HTTP 'interception' mocking library for node.js    
-https://github.com/pgte/nock
+- superagent ... HTTP test suite for ajax and node   
+http://visionmedia.github.io/superagent/docs/test.html
 - mocha ... Testing framework for node.js and browser code op semantics    
 https://github.com/mochajs/mocha
 
