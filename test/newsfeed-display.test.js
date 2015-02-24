@@ -1,57 +1,29 @@
-var request = require('request');
-var assert = require('assert');
-var async = require('async');
-var fs = require('fs');
+ var request = require('superagent');
+ assert = require('assert');
+ var expect = require('expect.js');
 
-var newsfeedUrl = 'http://localhost:8124/';
-var RELATIVE_TEST_FILEPATH = 'test/newsfeed-display.test.html'
+ /* Precompute required number of articles per test run */
+ var TOTAL_FEEDS_TO_BE_PROCESSED = require('../feedsource')._count()
+ var ARTICLES_PER_SOURCE = 10; // TODO - consider exporting this value from newsfeed-display.js
+ var TOTAL_ARTICLES_EXPECTED = TOTAL_FEEDS_TO_BE_PROCESSED * ARTICLES_PER_SOURCE;
 
-/* TODO - Switch back to memory streams once external IO file rw is analysed
-} */
 
-function responseVerificationString(url) {
-    ws = responseVerificationStream(url)
-    return ws.toString()
-}
+ describe('news headlines page', function() {
+     this.timeout(5000);
 
-describe('newsfeed-nodejs', function() {
-    this.timeout(50000);
+     it('should get \'news headlines\' and contain ' + TOTAL_ARTICLES_EXPECTED + ' listed articles', function(done) {
 
-    var newsfeedVerificationStream;
-    var newsfeedVerificationString;
+         request('GET', 'http://localhost:8124/').end(function(res) {
+             //console.log('res is ' + typeof res);
+             console.log('    TOTAL_ARTICLES_EXPECTED is ' + TOTAL_ARTICLES_EXPECTED);
+             expect(res).to.exist;
+             expect(res.text).to.contain('news');
+             assert.equal(res.status, 200, '200 status code returned');
+             assert.equal(res.text.match(/<li/g).length, TOTAL_ARTICLES_EXPECTED, 'Expected count of list terminations found');
+             assert.equal(res.text.match(/<\/li/g).length, TOTAL_ARTICLES_EXPECTED, 'Expected count of list terminations found')
 
-    function responseVerificationStream(url) {
-        ws = request(url).pipe(fs.createWriteStream(RELATIVE_TEST_FILEPATH));
-        //var streams = require('memory-streams');
-        //ws = request(url).pipe(new streams.WritableStream());
-        return ws
-    }
-    before(function() {
-        async.series(
-            [
+             done();
+         });
+     });
 
-                function(completion) {
-                    newsfeedVerificationStream = responseVerificationStream(newsfeedUrl);
-                    //console.log('newsfeedVerificationStream is ' + typeof newsfeedVerificationStream);
-                    newsfeedVerificationStream.on('end', function() {
-                        console.log('ended'), completion()
-                    });
-                    newsfeedVerificationStream.end()
-                },
-                function(completion) {
-                    var readfile = fs.readFileSync(RELATIVE_TEST_FILEPATH);
-                    newsfeedVerificationString = readfile.toString();
-                    //console.log('newsfeedVerificationString is ' + newsfeedVerificationString);
-                    completion()
-                }
-            ])
-    });
-    describe('# number of listed news items', function() {
-        it('should have the expected number of opening list tags', function(done) {
-            var newsfeedVerificationString = newsfeedVerificationStream.toString();
-            console.log('newsfeedVerificationString is ' + newsfeedVerificationString);
-            assert.equal(newsfeedVerificationString.match(/<li/g).length, 20, 'Expected count of list terminations found');
-            assert.equal(newsfeedVerificationString.match(/<\/li/g).length, 20, 'Expected count of list terminations found')
-        })
-    })
-})
+ });

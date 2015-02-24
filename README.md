@@ -60,12 +60,10 @@ To establish regression baseline.
 
 Test tool dependencies
 
-- request ... simple HTTP call interface allowing redirection   
-https://www.npmjs.com/package/request
+- superagent ... HTTP test suite for ajax and node   
+http://visionmedia.github.io/superagent/docs/test.html
 - mocha ... Testing framework for node.js and browser code op semantics    
 https://github.com/mochajs/mocha
-
-request is used to make GET requests in test/newsfeed-display.test.js
 
 To execute tests 
 

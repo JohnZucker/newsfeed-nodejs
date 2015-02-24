@@ -56,11 +56,12 @@ function renderArticlesFromSource(feedsource, res, limit) {
             log_informational('Adding feed ' + feedsource + ' with feeds_processed_length = ' + feeds_processed_length);
             feeds_processed.push(feedsource);
             feeds_processed_length += 1;
-        } else if (feeds_processed_length >= TOTAL_FEEDS_TO_BE_PROCESSED &&
-            feedsource == feeds_processed[TOTAL_FEEDS_TO_BE_PROCESSED]) {
+        };
+        if (feeds_processed_length >= TOTAL_FEEDS_TO_BE_PROCESSED && // should be equal (greater never encountered)
+            feedsource == feeds_processed[TOTAL_FEEDS_TO_BE_PROCESSED - 1]) {
             log_informational('All articles written from all feed sources: ' + feeds_processed);
             feeds_processed = [];
-            res.write("</ol>\n</body>\n");
+            res.write("</ol>\n</body>\n</html>\n");
             res.end()
         }
     });
