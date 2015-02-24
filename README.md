@@ -60,12 +60,12 @@ To establish regression baseline.
 
 Test tool dependencies
 
-- nock ... HTTP 'interception' mocking library for node.js    
-https://github.com/pgte/nock
+- request ... the simplest package providing a way to make http calls
+https://www.npmjs.com/package/request
 - mocha ... Testing framework for node.js and browser code op semantics    
 https://github.com/mochajs/mocha
 
-nock is used to intercept http responses and write data into string newsfeedRecordedCallResponse in the test http-request-test.js.
+The request implementation is supplemented with javascript io filestreams.
 
 To execute tests 
 
